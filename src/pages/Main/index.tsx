@@ -5,6 +5,7 @@ import RightArrow from 'assets/Icon/RightArrow';
 import MainImg from 'assets/image/MainImg.jpg';
 import Check from 'assets/Icon/Check';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import ReservationModal from 'components/ReservationModal';
 
 const Main = () => {
   const history = useNavigate();
@@ -59,6 +60,7 @@ const Main = () => {
         </_.Main_Start_Box>
       </_.Main_Location>
 
+
       <_.Main_Note>
         <Check /> 시간 예약으로 원하는 시간에 이용해보세요.
         <br />
@@ -66,6 +68,7 @@ const Main = () => {
       </_.Main_Note>
 
       <MenuBar selectState={1} />
+      <ReservationModal />
     </_.Main_Container>
   );
 };
