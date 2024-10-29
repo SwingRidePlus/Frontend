@@ -10,6 +10,9 @@ import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import axios from 'axios';
 import Puls from 'assets/Icon/Puls';
 import Return from 'assets/Icon/Return';
+import Minus from 'assets/Icon/Minus';
+import PlusBlack from 'assets/Icon/PlusBlack';
+import Info from 'assets/Icon/Info';
 
 const ReservationDetail = () => {
   const history = useNavigate();
@@ -27,6 +30,7 @@ const ReservationDetail = () => {
   const [taxiPrice, setTaxiPrice] = useState<number | undefined>();
   const inputRef = useRef<HTMLInputElement>(null);
   const [originalPrice, setOriginalPrice] = useState<number>(0);
+  const [passengerCount, setPassengerCount] = useState<number>(1);
 
   const queryParams = new URLSearchParams(location.search);
   const start = queryParams.get('start');
@@ -135,16 +139,29 @@ const ReservationDetail = () => {
   const handlePriceChange = (percentage: number) => {
     if (originalPrice) {
       const maxPrice = originalPrice * 1.3; // 최대 30% 증가
-      const newPrice = percentage === 0 
-        ? originalPrice 
-        : originalPrice * (1 + percentage / 100);
-      
+      const newPrice =
+        percentage === 0
+          ? originalPrice
+          : originalPrice * (1 + percentage / 100);
+
       if (newPrice <= maxPrice) {
         setTaxiPrice(Math.round(newPrice));
       } else {
         alert('최대 30%까지만 인상 가능합니다.');
         setTaxiPrice(originalPrice);
       }
+    }
+  };
+
+  const handlePassengerIncrease = () => {
+    if (passengerCount < 4) {
+      setPassengerCount((prev) => prev + 1);
+    }
+  };
+
+  const handlePassengerDecrease = () => {
+    if (passengerCount > 1) {
+      setPassengerCount((prev) => prev - 1);
     }
   };
 
@@ -156,13 +173,10 @@ const ReservationDetail = () => {
         <_.Main_Title_Highlight>스윙 경매 예약</_.Main_Title_Highlight>으로
         합리적이게
       </_.Main_Titile>
-
       <_.Main_Info>
         경매서비스 알아보기 <RightArrow width="16" height="16" color="black" />
       </_.Main_Info>
-
       <_.Main_Img src={MainImg} alt="MainImg" />
-
       <_.Main_Map>
         출발/도착
         <Map
@@ -192,7 +206,6 @@ const ReservationDetail = () => {
           />
         </Map>
       </_.Main_Map>
-
       <_.Main_Location_Select>
         <_.Main_Start_Box
           onClick={() => {
@@ -220,9 +233,7 @@ const ReservationDetail = () => {
           {end ? end : ' 어디로 떠나시나요?'}
         </_.Main_Start_Box>
       </_.Main_Location_Select>
-
       <_.Main_Provider_Select />
-
       <_.Main_StartTime>
         출발시간
         <_.Main_TimePicker>
@@ -232,9 +243,7 @@ const ReservationDetail = () => {
           <RightArrow width="20" height="20" color="black" />
         </_.Main_TimePicker>
       </_.Main_StartTime>
-
       <_.Main_Provider_Select />
-
       <_.Main_TaxiPrice onClick={() => inputRef.current?.focus()}>
         기본요금
         <_.Main_TaxiPricePicker>
@@ -281,8 +290,61 @@ const ReservationDetail = () => {
           최대 인상 가능 요금은 <span>30%</span>에요.
         </_.Main_TaxiPriceInfo>
       </_.Main_TaxiPrice>
+      <_.Main_Provider_Select />
+      <_.Main_Boarding_Info>
+        탑승 정보
+        <_.Main_Boarding_Info_Num>
+          <_.Main_Boarding_Info_Title>
+            탑승인원
+            <span>최대 4명 탑승</span>
+          </_.Main_Boarding_Info_Title>
+
+          <_.Main_Boarding_Info_Input>
+            <div
+              onClick={handlePassengerDecrease}
+              style={{ cursor: 'pointer' }}
+            >
+              <Minus />
+            </div>
+            <input type="number" value={passengerCount} readOnly />
+            <div
+              onClick={handlePassengerIncrease}
+              style={{ cursor: 'pointer' }}
+            >
+              <PlusBlack />
+            </div>
+          </_.Main_Boarding_Info_Input>
+        </_.Main_Boarding_Info_Num>
+        요청사항
+        <_.Main_Boarding_Info_Request
+          type="text"
+          placeholder="예시) 캐리어가 1개 있어요"
+        />
+      </_.Main_Boarding_Info>
 
       <_.Main_Provider_Select />
+
+      <_.Main_Pay>
+        <_.Main_Pay_Title>
+          <span>결제 정보</span>
+          <div>
+            운임 및 취소정책 <Info />
+          </div>
+        </_.Main_Pay_Title>
+
+        <_.Main_Pay_Card>
+          카카오페이
+          <div>
+            <span>쿠폰 0</span>
+            <span>포인트 0P</span>
+            <RightArrow width="20" height="20" color="black" />
+          </div>
+        </_.Main_Pay_Card>
+
+        <_.Main_Pay_Button>
+          {taxiPrice?.toLocaleString()}원 경매 시작하기
+        </_.Main_Pay_Button>
+      </_.Main_Pay>
 
       <MenuBar selectState={1} />
     </_.Main_Container>
