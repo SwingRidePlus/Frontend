@@ -148,3 +148,40 @@ export const Main_TaxiPricePicker = styled.div`
   font-weight: 400;
   color: #ff6701;
 `;
+
+export const Main_TaxiPriceInput = styled.input`
+  background-color: none;
+  border: none;
+  font-size: 16px;
+  color: #ff6701;
+  width: 90%;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const Main_TaxiPriceUppers = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+`;
+
+export const Main_TaxiPriceUpper = styled.div`
+  padding: 6px 12px;
+  border: 2px solid #e7e7e7;
+  border-radius: 5px;
+  color: #ff6701;
+  font-size: 16px;
+  font-weight: normal;
+`;
+
+export const Main_TaxiPriceInfo = styled.div`
+  font-size: 16px;
+  font-weight: normal;
+
+  span {
+    color: #ff6701;
+  }
+`;

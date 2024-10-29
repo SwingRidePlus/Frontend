@@ -8,6 +8,8 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ReservationModal from 'components/ReservationModal';
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import axios from 'axios';
+import Puls from 'assets/Icon/Puls';
+import Return from 'assets/Icon/Return';
 
 const ReservationDetail = () => {
   const history = useNavigate();
@@ -22,7 +24,9 @@ const ReservationDetail = () => {
   const [pathCoordinates, setPathCoordinates] = useState<
     Array<{ lat: number; lng: number }>
   >([]);
-  const [taxiPrice, setTaxiPrice] = useState();
+  const [taxiPrice, setTaxiPrice] = useState<number | undefined>();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [originalPrice, setOriginalPrice] = useState<number>(0);
 
   const queryParams = new URLSearchParams(location.search);
   const start = queryParams.get('start');
@@ -79,7 +83,9 @@ const ReservationDetail = () => {
           }
         );
         setPathCoordinates(path);
-        setTaxiPrice(Location.data.routes[0].summary.fare.taxi);
+        const initialPrice = Number(Location.data.routes[0].summary.fare.taxi);
+        setTaxiPrice(initialPrice);
+        setOriginalPrice(initialPrice);
 
         const newCenter = {
           lat:
@@ -125,6 +131,22 @@ const ReservationDetail = () => {
       }
     }
   }, [locationData]);
+
+  const handlePriceChange = (percentage: number) => {
+    if (originalPrice) {
+      const maxPrice = originalPrice * 1.3; // 최대 30% 증가
+      const newPrice = percentage === 0 
+        ? originalPrice 
+        : originalPrice * (1 + percentage / 100);
+      
+      if (newPrice <= maxPrice) {
+        setTaxiPrice(Math.round(newPrice));
+      } else {
+        alert('최대 30%까지만 인상 가능합니다.');
+        setTaxiPrice(originalPrice);
+      }
+    }
+  };
 
   return (
     <_.Main_Container>
@@ -213,12 +235,51 @@ const ReservationDetail = () => {
 
       <_.Main_Provider_Select />
 
-      <_.Main_TaxiPrice>
+      <_.Main_TaxiPrice onClick={() => inputRef.current?.focus()}>
         기본요금
         <_.Main_TaxiPricePicker>
-          <div>₩ {taxiPrice}</div>
-          <RightArrow width="20" height="20" color="black" />
+          <div>
+            ₩{' '}
+            <_.Main_TaxiPriceInput
+              ref={inputRef}
+              type="number"
+              value={taxiPrice}
+              onChange={(e) => {
+                const newPrice = Number(e.currentTarget.value);
+                const maxPrice = originalPrice * 1.3;
+                if (newPrice <= maxPrice) {
+                  setTaxiPrice(newPrice);
+                } else {
+                  alert('최대 30%까지만 인상 가능합니다.');
+                  setTaxiPrice(originalPrice);
+                }
+              }}
+            />
+          </div>
+          <div onClick={() => inputRef.current?.focus()}>
+            <Puls />
+          </div>
         </_.Main_TaxiPricePicker>
+        <_.Main_TaxiPriceUppers>
+          <_.Main_TaxiPriceUpper onClick={() => handlePriceChange(0)}>
+            <Return />
+          </_.Main_TaxiPriceUpper>
+          <_.Main_TaxiPriceUpper onClick={() => handlePriceChange(5)}>
+            +5%
+          </_.Main_TaxiPriceUpper>
+          <_.Main_TaxiPriceUpper onClick={() => handlePriceChange(10)}>
+            +10%
+          </_.Main_TaxiPriceUpper>
+          <_.Main_TaxiPriceUpper onClick={() => handlePriceChange(15)}>
+            +15%
+          </_.Main_TaxiPriceUpper>
+          <_.Main_TaxiPriceUpper onClick={() => handlePriceChange(20)}>
+            +20%
+          </_.Main_TaxiPriceUpper>
+        </_.Main_TaxiPriceUppers>
+        <_.Main_TaxiPriceInfo>
+          최대 인상 가능 요금은 <span>30%</span>에요.
+        </_.Main_TaxiPriceInfo>
       </_.Main_TaxiPrice>
 
       <_.Main_Provider_Select />
