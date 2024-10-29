@@ -1,10 +1,15 @@
 import React from 'react';
+import * as _ from './style';
+import MenuBar from 'components/MenuBar';
 
 const Main = () => {
   return (
-    <div>
-      Test
-    </div>
+    <_.Main_Container>
+
+      <></>
+
+      <MenuBar selectState={1} />
+    </_.Main_Container>
   );
 };
 
