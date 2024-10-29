@@ -5,8 +5,8 @@ import React from 'react';
 import * as _ from './style';
 import Home from 'assets/Icon/MenuBar/Select/Home';
 import Home_Not from 'assets/Icon/MenuBar/NotSelect/Home';
-import Travel from 'assets/Icon/MenuBar/Select/Travel';
-import Travel_Not from 'assets/Icon/MenuBar/NotSelect/Travel';
+import Reservation from 'assets/Icon/MenuBar/Select/Reservation';
+import Reservation_Not from 'assets/Icon/MenuBar/NotSelect/Reservation';
 import All from 'assets/Icon/MenuBar/Select/All';
 import All_Not from 'assets/Icon/MenuBar/NotSelect/All';
 import { useNavigate } from 'react-router-dom';
@@ -18,8 +18,8 @@ interface MenuBarProps {
 const icons = [
   { selected: Home, notSelected: Home_Not, title: '홈', location: '/' },
   {
-    selected: Travel,
-    notSelected: Travel_Not,
+    selected: Reservation,
+    notSelected: Reservation_Not,
     title: '내 예약',
     location: '/asdfasdf'
   },

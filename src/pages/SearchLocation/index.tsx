@@ -17,7 +17,7 @@ const AddSearch = () => {
   const navigate = useNavigate();
   const id = useParams().id;
   const location = useLocation();
-  const { planInfos } = location.state;
+  const { planInfos } = location.state || {};
   const [query, setQuery] = useState<string>('');
 
   const debouncedQuery = useDebounce({ value: query, delay: 200 });
