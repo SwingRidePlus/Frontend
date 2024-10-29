@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import * as _ from './style';
 import TimePicker from 'components/TimePicker';
+import { useNavigate } from 'react-router-dom';
 
-const ReservationModal = () => {
+const ReservationModal = ({ start, end }: any) => {
+  const history = useNavigate();
   const [time, setTime] = useState({
     day: '',
     hour: '',
@@ -66,9 +68,26 @@ const ReservationModal = () => {
         </_.Modal_TimePickerList>
 
         <_.Modal_Buttons>
-          <_.Modal_Button state={true}>취소</_.Modal_Button>
+          <_.Modal_Button
+            state={true}
+            onClick={() => {
+              history('/');
+            }}
+          >
+            취소
+          </_.Modal_Button>
 
-          <_.Modal_Button state={false}>선택완료</_.Modal_Button>
+          <_.Modal_Button
+            state={false}
+            onClick={() => {
+              history({
+                pathname: '/reservationdetail',
+                search: `?start=${start}&end=${end}&day=${time.day}&hour=${time.hour}&minute=${time.minute}`
+              });
+            }}
+          >
+            선택완료
+          </_.Modal_Button>
         </_.Modal_Buttons>
       </_.Modal_Container>
     </_.Modal_Container_Background>

@@ -6,6 +6,7 @@ import MainImg from 'assets/image/MainImg.jpg';
 import Check from 'assets/Icon/Check';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ReservationModal from 'components/ReservationModal';
+import { Map } from 'react-kakao-maps-sdk';
 
 const Main = () => {
   const history = useNavigate();
@@ -14,8 +15,6 @@ const Main = () => {
   const queryParams = new URLSearchParams(location.search);
   const start = queryParams.get('start');
   const end = queryParams.get('end');
-  console.log(start);
-  console.log(end);
 
   return (
     <_.Main_Container>
@@ -60,7 +59,6 @@ const Main = () => {
         </_.Main_Start_Box>
       </_.Main_Location>
 
-
       <_.Main_Note>
         <Check /> 시간 예약으로 원하는 시간에 이용해보세요.
         <br />
@@ -68,7 +66,7 @@ const Main = () => {
       </_.Main_Note>
 
       <MenuBar selectState={1} />
-      <ReservationModal />
+      {start && end ? <ReservationModal start={start} end={end} /> : ''}
     </_.Main_Container>
   );
 };

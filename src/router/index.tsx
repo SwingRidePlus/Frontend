@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom';
 
 import Main from 'pages/Main';
 import SearchLocation from 'pages/SearchLocation';
+import ReservationDetail from 'pages/ReservationDetail';
 
 export default function Router() {
   return useRoutes([
@@ -12,6 +13,10 @@ export default function Router() {
     {
       path: '/searchlocation',
       children: [{ index: true, element: <SearchLocation /> }]
+    },
+    {
+      path: '/reservationdetail',
+      children: [{ index: true, element: <ReservationDetail /> }]
     }
     // { path: '*', element: <NotFound /> }
   ]);

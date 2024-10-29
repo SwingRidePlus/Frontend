@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Main_Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  margin-bottom: 100px;
   overflow-y: auto;
   padding: 100px 32px 0px 32px;
   display: flex;
@@ -54,24 +54,40 @@ export const Main_Location_Select = styled.div`
   height: 140px;
   border-radius: 10px;
   padding: 24px 10px;
-  margin-top: 20px;
 `;
 
 export const Main_Provider_Select = styled.div`
   width: 100%;
   height: 8px;
   background-color: #f5f6f7;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export const Main_StartTime = styled.div`
-
-`
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+`;
 
 export const Main_TimePicker = styled.div`
+  width: 100%;
+  height: 50px;
   display: flex;
   flex-direction: row;
-
-`
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 5px;
+  border: 2px solid #e7e7e7;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FF6701;
+`;
 
 export const Main_Start_Box = styled.div`
   display: flex;
@@ -94,13 +110,6 @@ export const Main_Start_Dot = styled.div<{ color?: boolean }>`
 export const Main_Provider = styled.div`
   height: 1px;
   background-color: #f4f4f5;
-`;
-
-export const Main_Note = styled.span`
-  font-size: 14px;
-  font-weight: normal;
-  color: #ff6701;
-  margin-top: 20px;
 `;
 
 export const Main_Map = styled.div`
