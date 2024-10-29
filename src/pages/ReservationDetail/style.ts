@@ -86,7 +86,7 @@ export const Main_TimePicker = styled.div`
   border: 2px solid #e7e7e7;
   font-size: 16px;
   font-weight: 400;
-  color: #FF6701;
+  color: #ff6701;
 `;
 
 export const Main_Start_Box = styled.div`
@@ -122,4 +122,29 @@ export const Main_Map = styled.div`
   font-weight: 500;
   gap: 10px;
   margin-top: 24px;
+`;
+
+export const Main_TaxiPrice = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+`;
+
+export const Main_TaxiPricePicker = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 5px;
+  border: 2px solid #e7e7e7;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ff6701;
 `;

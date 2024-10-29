@@ -66,7 +66,6 @@ const ReservationDetail = () => {
           }
         );
 
-        
         const path = Location.data.routes[0].sections[0].roads.flatMap(
           (road: any) => {
             const coordinates = [];
@@ -80,6 +79,7 @@ const ReservationDetail = () => {
           }
         );
         setPathCoordinates(path);
+        setTaxiPrice(Location.data.routes[0].summary.fare.taxi);
 
         const newCenter = {
           lat:
@@ -125,8 +125,6 @@ const ReservationDetail = () => {
       }
     }
   }, [locationData]);
-
-  console.log(locationData);
 
   return (
     <_.Main_Container>
@@ -204,7 +202,7 @@ const ReservationDetail = () => {
       <_.Main_Provider_Select />
 
       <_.Main_StartTime>
-        출발요금
+        출발시간
         <_.Main_TimePicker>
           <div>
             {day} {hour}:{minute}
@@ -212,6 +210,16 @@ const ReservationDetail = () => {
           <RightArrow width="20" height="20" color="black" />
         </_.Main_TimePicker>
       </_.Main_StartTime>
+
+      <_.Main_Provider_Select />
+
+      <_.Main_TaxiPrice>
+        기본요금
+        <_.Main_TaxiPricePicker>
+          <div>₩ {taxiPrice}</div>
+          <RightArrow width="20" height="20" color="black" />
+        </_.Main_TaxiPricePicker>
+      </_.Main_TaxiPrice>
 
       <_.Main_Provider_Select />
 
