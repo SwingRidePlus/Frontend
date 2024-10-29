@@ -19,6 +19,7 @@ export const MenuBar_Container = styled.div`
 export const Menubar_Icon = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 4px;
   justify-content: center;
   align-items: center;
 `;
