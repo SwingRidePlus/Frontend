@@ -46,14 +46,14 @@ export const AddPlanContent_Button_Loction = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-color: ${theme.gray[0]};
   border-radius: 100%;
 `;
 
 export const AddPlanContent_Button_Text = styled.div`
-  color: ${theme.primary[7]};
+  color: #FF6701;
   font-size: 16px;
   font-weight: 400;
 `;
