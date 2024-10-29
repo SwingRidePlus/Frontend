@@ -15,9 +15,9 @@ import SearchLoading from 'assets/image/SearchLoading.gif';
 
 const AddSearch = () => {
   const navigate = useNavigate();
-  const id = useParams().id;
   const location = useLocation();
-  const { planInfos } = location.state || {};
+  const queryParams = new URLSearchParams(location.search);
+  const start = queryParams.get('start');
   const [query, setQuery] = useState<string>('');
 
   const debouncedQuery = useDebounce({ value: query, delay: 200 });
@@ -39,9 +39,17 @@ const AddSearch = () => {
     setQuery(e.currentTarget.value);
   };
 
-  const onClickIcon = (address: string) => {
-    navigate(`/plan/info/${id!}/add`, {
-      state: { address: address, planInfos: planInfos }
+  const onClickIconStart = (address: string) => {
+    console.log('start');
+    navigate(`/?start=${address}`, {
+      state: { address: address }
+    });
+  };
+
+  const onClickIconEnd = (address: string) => {
+    console.log('end');
+    navigate(`/?start=${start}&end=${address}`, {
+      state: { address: address }
     });
   };
 
@@ -90,7 +98,9 @@ const AddSearch = () => {
             data.documents.map((item: Document) => (
               <AddPlanContent
                 onClickIcon={() => {
-                  onClickIcon(item.road_address_name);
+                  start === null
+                    ? onClickIconStart(item.road_address_name)
+                    : onClickIconEnd(item.road_address_name);
                 }}
                 key={item.id}
                 Title={item.place_name}
