@@ -20,7 +20,7 @@ const UnReservation: React.FC<UnReservationProps> = ({ selectedDays }) => {
   return (
     <_.UnReservationContainer>
       <_.Header>
-        <_.DateText>{selectDateString} (수)</_.DateText>
+        <_.DateText>{selectDateString}</_.DateText>
         <_.ConfirmButton>예약 확정</_.ConfirmButton>
       </_.Header>
 

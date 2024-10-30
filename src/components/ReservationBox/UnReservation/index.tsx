@@ -18,14 +18,10 @@ const UnReservation: React.FC<UnReservationProps> = ({ selectedDays }) => {
 
   return (
     <_.UnReservationContainer>
-      <_.ContentContainer>
-        <_.DateText>
-          {selectDateString}
-        </_.DateText>
-        <_.InPorgressWrap>
-          <_.InPorgressTitle> 진행중 </_.InPorgressTitle>
-        </_.InPorgressWrap>
-      </_.ContentContainer>
+      <_.Header>
+        <_.DateText>{selectDateString}</_.DateText>
+        <_.ConfirmButton>진행중</_.ConfirmButton>
+      </_.Header>
       <_.Divider />
       <_.AddressContainer>
         <_.AddressText>00시 00읍 00번지</_.AddressText>

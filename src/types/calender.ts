@@ -5,4 +5,5 @@ export type calendar = {
     };
     setSelectedDays: (days: { start: Date | null; end: Date | null }) => void;
     currentMonth: Date;
-  };
+    reservedDays: Date[]; 
+};

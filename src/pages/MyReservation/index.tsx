@@ -2,12 +2,15 @@ import React, { useState, useCallback } from 'react';
 import * as _ from './style';
 import MenuBar from 'components/MenuBar';
 import Calendar from 'components/Calendar';
-import Reservation from 'components/ReservationBox/Reservation/index'
+import Reservation from 'components/ReservationBox/Reservation/index';
 import UnReservation from 'components/ReservationBox/UnReservation/index';
 
 const MyReservation = () => {
   const [selectedDays, setSelectedDays] = useState<{ start: Date | null; end: Date | null }>({ start: null, end: null });
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  
+  // Define reservedDays state
+  const [reservedDays, setReservedDays] = useState<Date[]>([]); // Initialize with an empty array
 
   const handlePrevMonth = useCallback(() => {
     setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
@@ -31,6 +34,7 @@ const MyReservation = () => {
             selectedDays={selectedDays}
             setSelectedDays={setSelectedDays}
             currentMonth={currentMonth}
+            reservedDays={reservedDays} 
           />
         </_.CalendarContainer>
       </div>

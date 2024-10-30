@@ -19,7 +19,7 @@ export const ConfirmButton = styled.button`
   color: white;
   padding: 5px 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;

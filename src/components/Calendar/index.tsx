@@ -8,7 +8,8 @@ import { calendar } from 'types/calender';
 const Calendar = ({
   selectedDays,
   setSelectedDays,
-  currentMonth
+  currentMonth,
+  reservedDays 
 }: calendar) => {
   const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
@@ -98,6 +99,9 @@ const Calendar = ({
       }
       if (betweenDays) {
         className += ' between-days';
+      }
+      if (!isInvalidDate && reservedDays.some(reservedDay => isSameDay(day, reservedDay))) {
+        className += ' reserved-day'; 
       }
 
       return (

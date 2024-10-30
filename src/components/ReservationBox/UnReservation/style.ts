@@ -1,5 +1,22 @@
 import styled from "styled-components";
 
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ConfirmButton = styled.button`
+  background-color: #FF6701;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
 export const UnReservationContainer = styled.div`
   width: 100%;
   height: 420px;
