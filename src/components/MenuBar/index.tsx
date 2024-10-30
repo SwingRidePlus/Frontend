@@ -23,7 +23,7 @@ const icons = [
     title: '내 예약',
     location: '/myreservation'
   },
-  { selected: All, notSelected: All_Not, title: '전체', location: '/asdfasdf' }
+  { selected: All, notSelected: All_Not, title: '전체', location: '/mypage' }
 ];
 
 const MenuBar = ({ selectState }: MenuBarProps) => {

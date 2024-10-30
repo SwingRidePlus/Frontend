@@ -6,6 +6,7 @@ import ReservationDetail from 'pages/ReservationDetail';
 import MyReservation from 'pages/MyReservation/index';
 import SignUp from 'pages/SignUp';
 import SignIn from 'pages/SignIn';
+import MyPage from 'pages/MyPage';
 
 export default function Router() {
   return useRoutes([
@@ -32,6 +33,10 @@ export default function Router() {
     {
       path: '/signin',
       children: [{ index: true, element: <SignIn /> }]
+    },
+    {
+      path: '/mypage',
+      children: [{ index: true, element: <MyPage /> }]
     }
     // { path: '*', element: <NotFound /> }
   ]);
