@@ -34,6 +34,7 @@ const SignIn = () => {
       );
       if (data.status === 200) {
         alert('유저 로그인 성공');
+        localStorage.setItem('accessToken', data.data.access);
         history('/');
       }
     } catch (error) {

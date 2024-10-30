@@ -3,8 +3,7 @@ import * as _ from './style';
 import MenuBar from 'components/MenuBar';
 import RightArrow from 'assets/Icon/RightArrow';
 import MainImg from 'assets/image/MainImg.jpg';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import ReservationModal from 'components/ReservationModal';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import axios from 'axios';
 import Puls from 'assets/Icon/Puls';
@@ -30,6 +29,7 @@ const ReservationDetail = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [originalPrice, setOriginalPrice] = useState<number>(0);
   const [passengerCount, setPassengerCount] = useState<number>(1);
+  const [request, setRequest] = useState<string>();
 
   const queryParams = new URLSearchParams(location.search);
   const start = queryParams.get('start');
@@ -161,6 +161,30 @@ const ReservationDetail = () => {
   const handlePassengerDecrease = () => {
     if (passengerCount > 1) {
       setPassengerCount((prev) => prev - 1);
+    }
+  };
+
+  const handleSubmit = async () => {
+    const data = await axios.post(
+      'https://swing-be-stag.xquare.app/reservation',
+      {
+        origin: start,
+        destination: end,
+        time: `${hour}:${minute}`,
+        charge: taxiPrice,
+        personnel: passengerCount,
+        request: request,
+        date: day
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+      }
+    );
+    if (data.status === 200) {
+      alert('예약 생성 성공');
+      history('/');
     }
   };
 
@@ -318,6 +342,9 @@ const ReservationDetail = () => {
         <_.Main_Boarding_Info_Request
           type="text"
           placeholder="예시) 캐리어가 1개 있어요"
+          onChange={(e) => {
+            setRequest(e.currentTarget.value);
+          }}
         />
       </_.Main_Boarding_Info>
 
@@ -340,7 +367,7 @@ const ReservationDetail = () => {
           </div>
         </_.Main_Pay_Card>
 
-        <_.Main_Pay_Button>
+        <_.Main_Pay_Button onClick={handleSubmit}>
           {taxiPrice?.toLocaleString()}원 경매 시작하기
         </_.Main_Pay_Button>
       </_.Main_Pay>
