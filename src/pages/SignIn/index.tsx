@@ -32,10 +32,23 @@ const SignIn = () => {
         'https://swing-be-stag.xquare.app/signin',
         userInfos
       );
+      
       if (data.status === 200) {
-        alert('유저 로그인 성공');
+        alert('로그인 성공');
         localStorage.setItem('accessToken', data.data.access);
-        history('/');
+  
+        const userInfoResponse = await axios.get('https://swing-be-stag.xquare.app/users/my-info', {
+          headers: {
+            Authorization: `Bearer ${data.data.access}`
+          }
+        });
+  
+        const userRole = userInfoResponse.data.role;
+        if (userRole === 'ROLE_USER') {
+          history('/');
+        } else if (userRole === 'ROLE_TAXI') {
+          history('/taxiexplore');
+        }
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 404) {
