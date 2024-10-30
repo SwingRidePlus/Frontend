@@ -3,7 +3,7 @@ import React from 'react';
 
 //파일
 import * as _ from './style';
-import Location from 'assets/icon/Location';
+import Location from 'assets/Icon/Location';
 
 type OwnProps = {
   Title?: string;

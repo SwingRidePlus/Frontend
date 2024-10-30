@@ -3,7 +3,6 @@ import * as _ from './style';
 import MenuBar from 'components/MenuBar';
 import RightArrow from 'assets/Icon/RightArrow';
 import MainImg from 'assets/image/MainImg.jpg';
-import Check from 'assets/Icon/Check';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ReservationModal from 'components/ReservationModal';
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
