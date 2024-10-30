@@ -1,8 +1,8 @@
 import React from 'react';
 import * as _ from "./style";
-import Arrow from "assets/icon/Reservation/Arrow_right_light.svg";
-import PhoneIcon from "assets/icon/Reservation/Call.svg";
-import MessageIcon from "assets/icon/Reservation/Send.svg";
+import Arrow from "assets/Icon/Reservation/Arrow_right_light.svg";
+import PhoneIcon from "assets/Icon/Reservation/Call.svg";
+import MessageIcon from "assets/Icon/Reservation/Send.svg";
 
 interface SelectedDays {
   start: Date | null;

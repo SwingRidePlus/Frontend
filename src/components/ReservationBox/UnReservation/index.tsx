@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as _ from "./style";
-import Arrow from "assets/icon/Reservation/Arrow_right_light.svg";
-import Reset from "assets/icon/Reservation/reload.svg";
-import Puls from 'assets/icon/Puls';
+import Arrow from "assets/Icon/Reservation/Arrow_right_light.svg";
+import Reset from "assets/Icon/Reservation/reload.svg";
+import Puls from 'assets/Icon/Puls';
 import useReservationManagement from 'hooks/useReservationManagement';
 import axios from 'axios';
 

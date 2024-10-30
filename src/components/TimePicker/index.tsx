@@ -26,13 +26,13 @@ const TimePicker = ({
 
   const handleScroll = useCallback(() => {
     if (ref.current) {
-      clearTimeout(timerRef.current!);
+      clearTimeout(timerRef.current ?? undefined);
       if (ref.current.scrollTop < ITEM_HEIGHT) {
         ref.current.scrollTop = ITEM_HEIGHT;
       }
       timerRef.current = setTimeout(() => {
         const index = Math.floor(
-          (ref.current!.scrollTop + ITEM_HEIGHT / 2) / ITEM_HEIGHT
+          (ref.current?.scrollTop ?? 0 + ITEM_HEIGHT / 2) / ITEM_HEIGHT
         );
         if (list[index] !== '') {
           setSelected(index);
