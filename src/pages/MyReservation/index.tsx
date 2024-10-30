@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import * as _ from './style';
 import MenuBar from 'components/MenuBar';
 import Calendar from 'components/Calendar';
+import Reservation from 'components/ReservationBox/Reservation/index'
 import UnReservation from 'components/ReservationBox/UnReservation/index';
 
 const MyReservation = () => {
@@ -33,6 +34,10 @@ const MyReservation = () => {
           />
         </_.CalendarContainer>
       </div>
+
+      <_.UnReservationContainer>
+        <Reservation selectedDays={selectedDays} />
+      </_.UnReservationContainer>
       
       <_.UnReservationContainer>
         <UnReservation selectedDays={selectedDays} />
