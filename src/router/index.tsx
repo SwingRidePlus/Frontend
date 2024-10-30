@@ -6,6 +6,8 @@ import ReservationDetail from 'pages/ReservationDetail';
 import MyReservation from 'pages/MyReservation/index';
 import SignUp from 'pages/SignUp';
 import SignIn from 'pages/SignIn';
+import Explore from 'pages/TaxiDriver/Explore';
+import DriverBook from 'pages/TaxiDriver/DrvierBook';
 
 export default function Router() {
   return useRoutes([
@@ -32,6 +34,14 @@ export default function Router() {
     {
       path: '/signin',
       children: [{ index: true, element: <SignIn /> }]
+    },
+    {
+      path: '/taxiexplore',
+      children: [{ index: true, element: <Explore /> }]
+    },
+    {
+      path: '/driverbook',
+      children: [{ index: true, element: <DriverBook /> }]
     }
     // { path: '*', element: <NotFound /> }
   ]);
