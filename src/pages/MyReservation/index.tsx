@@ -34,15 +34,15 @@ const MyReservation = () => {
             selectedDays={selectedDays}
             setSelectedDays={setSelectedDays}
             currentMonth={currentMonth}
-            reservedDays={reservedDays} 
+            reservedDays={reservedDays} // Pass reservedDays to Calendar
           />
         </_.CalendarContainer>
       </div>
 
-      <_.UnReservationContainer>
+      {/* <_.UnReservationContainer>
         <Reservation selectedDays={selectedDays} />
       </_.UnReservationContainer>
-      
+       */}
       <_.UnReservationContainer>
         <UnReservation selectedDays={selectedDays} />
       </_.UnReservationContainer>

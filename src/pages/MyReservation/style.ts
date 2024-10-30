@@ -55,3 +55,7 @@ export const UnReservationContainer = styled.div`
   padding: 20px 0 0 0;
   margin-bottom: 50px;
 `
+
+export const ReservationContainer = styled.div`
+
+`

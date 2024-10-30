@@ -27,8 +27,8 @@ export const UnReservationContainer = styled.div`
 
 export const ContentContainer = styled.div`
   display: flex;
-  justify-content: space-between; /* 날짜와 진행중을 양쪽 끝으로 배치 */
-  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: space-between; 
+  align-items: center;
 `;
 
 export const DateText = styled.div`
@@ -335,4 +335,3 @@ export const ExpectPriceTitle = styled.div`
 
     padding: 10px 0;
 `
-

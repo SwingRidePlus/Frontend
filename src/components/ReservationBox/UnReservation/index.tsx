@@ -4,6 +4,7 @@ import Arrow from "assets/icon/Reservation/Arrow_right_light.svg";
 import Reset from "assets/icon/Reservation/reload.svg";
 import Puls from 'assets/icon/Puls';
 import useReservationManagement from 'hooks/useReservationManagement';
+import axios from 'axios';
 
 interface SelectedDays {
   start: Date | null;
@@ -35,6 +36,26 @@ const UnReservation: React.FC<UnReservationProps> = ({ selectedDays }) => {
   useEffect(() => {
     setCharge(taxiPrice);
   }, [taxiPrice]);
+  const handleCancelReservation = async (id: number) => {
+    try {
+      const token = localStorage.getItem('accessToken'); 
+      if (!token) {
+        alert('토큰이 존재하지 않습니다.'); 
+        return;
+      }
+      
+      await axios.delete(`https://swing-be-stag.xquare.app/reservation/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      alert('예약이 취소되었습니다.'); 
+      
+    } catch (err) {
+      console.error(err);
+      alert('예약 취소에 실패했습니다.'); 
+    }
+  };
 
   return (
     <_.UnReservationContainer>
@@ -98,6 +119,11 @@ const UnReservation: React.FC<UnReservationProps> = ({ selectedDays }) => {
                 최대 인상 가능 요금은 <span>30%</span>에요.
               </_.Main_TaxiPriceInfo>
             </_.Main_TaxiPrice>
+            <_.CancelPromiseWrap>
+              <_.CancelPromiseButton onClick={() => handleCancelReservation(reservation.id)}>
+                <_.CancelPromise> 예약 취소 </_.CancelPromise>
+              </_.CancelPromiseButton>
+            </_.CancelPromiseWrap>
           </div>
         ))
       ) : (
@@ -106,14 +132,9 @@ const UnReservation: React.FC<UnReservationProps> = ({ selectedDays }) => {
       <div>
         <_.ExpectPriceTitle>예상 선불금</_.ExpectPriceTitle>
         <_.ExpectPrice>
-          ₩ {charge ? Math.floor(charge * 0.5).toLocaleString() : '0'} {/* Main_TaxiPrice의 50% */}
+          ₩ {charge ? Math.floor(charge * 0.5).toLocaleString() : '0'} 
         </_.ExpectPrice>
       </div>
-      <_.CancelPromiseWrap>
-        <_.CancelPromiseButton>
-          <_.CancelPromise> 예약 취소 </_.CancelPromise>
-        </_.CancelPromiseButton>
-      </_.CancelPromiseWrap>
     </_.UnReservationContainer>
   );
 }
