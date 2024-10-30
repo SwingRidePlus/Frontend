@@ -3,7 +3,6 @@ import React, { ChangeEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // 파일
 import * as _ from './style';
-import { formatBirthday } from 'lib/utils/formatBirthday';
 import axios from 'axios';
 
 interface UserInfo {

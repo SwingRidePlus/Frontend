@@ -9,8 +9,8 @@ import Search from 'assets/image/Search';
 import AddPlanContent from 'components/AddPlanContent';
 import { GetKeywordData, ApiResponse, Document } from 'lib/api/LocationSearch';
 import useDebounce from 'hooks/useDebounce';
-import SearchBarX from 'assets/icon/SearchBarX';
-import SearchError from 'assets/icon/SearchError';
+import SearchBarX from 'assets/Icon/SearchBarX';
+import SearchError from 'assets/Icon/SearchError';
 import SearchLoading from 'assets/image/SearchLoading.gif';
 
 const AddSearch = () => {

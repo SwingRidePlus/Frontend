@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as _ from './style';
 import MenuBar from 'components/MenuBar';
-import RightArrow from 'assets/icon/RightArrow';
+import RightArrow from 'assets/Icon/RightArrow';
 import MainImg from 'assets/image/MainImg.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';

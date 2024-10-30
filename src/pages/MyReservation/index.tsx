@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import * as _ from './style';
 import MenuBar from 'components/MenuBar';
 import Calendar from 'components/Calendar';
-import Reservation from 'components/ReservationBox/Reservation/index';
 import UnReservation from 'components/ReservationBox/UnReservation/index';
 
 const MyReservation = () => {
