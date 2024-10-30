@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import * as _ from './style';
-import Arrow from "assets/icon/Reservation/Arrow_right_light.svg";
+import Arrow from "assets/Icon/Reservation/Arrow_right_light.svg";
 
 interface BookBoxProps {
   date: string;
