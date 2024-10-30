@@ -6,11 +6,11 @@ import MainImg from 'assets/image/MainImg.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import axios from 'axios';
-import Puls from 'assets/icon/Puls';
-import Return from 'assets/icon/Return';
-import Minus from 'assets/icon/Minus';
-import PlusBlack from 'assets/icon/PlusBlack';
-import Info from 'assets/icon/Info';
+import Puls from 'assets/Icon/Puls';
+import Return from 'assets/Icon/Return';
+import Minus from 'assets/Icon/Minus';
+import PlusBlack from 'assets/Icon/PlusBlack';
+import Info from 'assets/Icon/Info';
 
 const ReservationDetail = () => {
   const history = useNavigate();
