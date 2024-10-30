@@ -1,9 +1,9 @@
 import React from 'react';
 import * as _ from './style';
 import MenuBar from 'components/MenuBar';
-import RightArrow from 'assets/Icon/RightArrow';
+import RightArrow from 'assets/icon/RightArrow';
 import MainImg from 'assets/image/MainImg.jpg';
-import Check from 'assets/Icon/Check';
+import Check from 'assets/icon/Check';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import ReservationModal from 'components/ReservationModal';
 import { Map } from 'react-kakao-maps-sdk';

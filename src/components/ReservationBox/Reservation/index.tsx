@@ -1,8 +1,8 @@
 import React from 'react';
 import * as _ from "./style";
-import Arrow from "assets/Icon/Reservation/Arrow_right_light.svg";
-import PhoneIcon from "assets/Icon/Reservation/Call.svg";
-import MessageIcon from "assets/Icon/Reservation/Send.svg";
+import Arrow from "assets/icon/Reservation/Arrow_right_light.svg";
+import PhoneIcon from "assets/icon/Reservation/Call.svg";
+import MessageIcon from "assets/icon/Reservation/Send.svg";
 
 interface SelectedDays {
   start: Date | null;
@@ -23,6 +23,7 @@ const UnReservation: React.FC<UnReservationProps> = ({ selectedDays }) => {
         <_.DateText>{selectDateString}</_.DateText>
         <_.ConfirmButton>예약 확정</_.ConfirmButton>
       </_.Header>
+      <_.Divider />
 
       <_.ContentContainer>
         <_.AddressContainer>

@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as _ from './style';
 import MenuBar from 'components/MenuBar';
-import RightArrow from 'assets/Icon/RightArrow';
+import RightArrow from 'assets/icon/RightArrow';
 import MainImg from 'assets/image/MainImg.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Map, MapMarker, Polyline } from 'react-kakao-maps-sdk';
 import axios from 'axios';
-import Puls from 'assets/Icon/Puls';
-import Return from 'assets/Icon/Return';
-import Minus from 'assets/Icon/Minus';
-import PlusBlack from 'assets/Icon/PlusBlack';
-import Info from 'assets/Icon/Info';
+import Puls from 'assets/icon/Puls';
+import Return from 'assets/icon/Return';
+import Minus from 'assets/icon/Minus';
+import PlusBlack from 'assets/icon/PlusBlack';
+import Info from 'assets/icon/Info';
 
 const ReservationDetail = () => {
   const history = useNavigate();
