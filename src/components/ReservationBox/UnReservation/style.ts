@@ -19,7 +19,7 @@ export const ConfirmButton = styled.button`
 
 export const UnReservationContainer = styled.div`
   width: 100%;
-  height: 420px;
+  height: 450px;
   border: 1px solid #EAEAEA;
   border-radius: 5px;
   padding: 20px;
@@ -96,6 +96,7 @@ export const AddressDetail = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 130%; 
+  padding-bottom: 20px;
   /* margin-top: 5px;  */
 `;
 
@@ -245,3 +246,93 @@ export const CancelPromiseButton = styled.button`
     background-color: none;
     background: none;
 `
+
+export const Main_TaxiPricePicker = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 5px;
+  border: 2px solid #e7e7e7;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ff6701;
+`;
+
+export const Main_TaxiPriceInput = styled.input`
+  background-color: none;
+  border: none;
+  font-size: 16px;
+  color: #ff6701;
+  width: 90%;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const Main_TaxiPriceUppers = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+`;
+
+export const Main_TaxiPriceUpper = styled.div`
+  padding: 6px 12px;
+  border: 2px solid #e7e7e7;
+  border-radius: 5px;
+  color: #ff6701;
+  font-size: 16px;
+  font-weight: normal;
+`;
+
+export const Main_TaxiPriceInfo = styled.div`
+  font-size: 16px;
+  font-weight: normal;
+
+  span {
+    color: #ff6701;
+  }
+`;
+
+export const Main_TaxiPrice = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+`;
+
+export const ExpectPrice = styled.div`
+ width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid #e7e7e7;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ff6701;
+  padding: 0 20px;
+`
+
+export const ExpectPriceTitle = styled.div`
+    color: Black;
+
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%; 
+
+    padding: 10px 0;
+`
+

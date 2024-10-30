@@ -138,6 +138,11 @@ export const VehicleInfoWrapper = styled.div`
   gap: 10px; 
 `;
 
+export const Divider = styled.div`
+  border: 1px solid #EAEAEA;
+  margin-top: 13px; 
+`;
+
 export const CancelPromise = styled.div`
     color: #888888;
 

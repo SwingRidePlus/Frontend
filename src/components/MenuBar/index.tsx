@@ -3,12 +3,12 @@ import React from 'react';
 
 // 파일
 import * as _ from './style';
-import Home from 'assets/Icon/MenuBar/Select/Home';
-import Home_Not from 'assets/Icon/MenuBar/NotSelect/Home';
-import Reservation from 'assets/Icon/MenuBar/Select/Reservation';
-import Reservation_Not from 'assets/Icon/MenuBar/NotSelect/Reservation';
-import All from 'assets/Icon/MenuBar/Select/All';
-import All_Not from 'assets/Icon/MenuBar/NotSelect/All';
+import Home from 'assets/icon/MenuBar/Select/Home';
+import Home_Not from 'assets/icon/MenuBar/NotSelect/Home';
+import Reservation from 'assets/icon/MenuBar/Select/Reservation';
+import Reservation_Not from 'assets/icon/MenuBar/NotSelect/Reservation';
+import All from 'assets/icon/MenuBar/Select/All';
+import All_Not from 'assets/icon/MenuBar/NotSelect/All';
 import { useNavigate } from 'react-router-dom';
 
 interface MenuBarProps {
